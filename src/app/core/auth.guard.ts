@@ -20,3 +20,11 @@ export const guestGuard: CanActivateFn = () => {
 
   return auth.isAuthenticated() ? router.createUrlTree(['/tickets']) : true;
 };
+
+/** Only administrators reach the pages behind it; the API enforces the same rule on every call. */
+export const adminGuard: CanActivateFn = () => {
+  const auth = inject(AuthService);
+  const router = inject(Router);
+
+  return auth.isAuthenticated() && auth.user()?.role === 'Admin' ? true : router.createUrlTree(['/tickets']);
+};
