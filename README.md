@@ -14,6 +14,7 @@ administrators work them through the Open → In progress → Resolved → Close
 - Ticket detail with workflow actions (assign and start, resolve, close, reopen, change priority) shown only to
   agents and administrators.
 - Customers only ever see their own tickets: the API enforces it, the UI just reflects it.
+- Administrators get a Users screen to change roles; the API refuses self-changes, so an admin cannot lock themselves out by accident.
 
 ## Tech
 
@@ -63,7 +64,6 @@ npm run build    # production build in dist/
 
 - The token lives in `localStorage`, which is readable by any script on the page. A production system would
   prefer an `HttpOnly` cookie issued by the API, plus refresh tokens.
-- There is no admin screen for changing roles yet: the API has no endpoint to list users.
 - No end-to-end browser tests yet.
 
 ## License

@@ -16,6 +16,9 @@ import { AuthService } from './core/auth.service';
           <nav aria-label="Main">
             <a routerLink="/tickets" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tickets</a>
             <a routerLink="/tickets/new" routerLinkActive="active">New ticket</a>
+            @if (user.role === 'Admin') {
+              <a routerLink="/admin/users" routerLinkActive="active">Users</a>
+            }
           </nav>
 
           <div class="topbar__user">

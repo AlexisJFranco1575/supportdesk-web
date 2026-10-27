@@ -54,6 +54,15 @@ export interface LoginResponse {
   accessToken: string;
 }
 
+/** A user account as the administration screen sees it. Password data never reaches the browser. */
+export interface UserSummary {
+  id: string;
+  email: string;
+  fullName: string;
+  role: UserRole;
+  createdAt: string;
+}
+
 /** The signed-in user, read from the claims of the access token. */
 export interface CurrentUser {
   id: string;
